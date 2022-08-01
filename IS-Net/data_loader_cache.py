@@ -291,8 +291,11 @@ class GOSDatasetCache(Dataset):
             gt, gt_shp = gt_preprocess(gt,self.cache_size)
             gt_cache_file = os.path.join(cache_folder,self.dataset["data_name"][i]+"_"+im_id + "_gt.pt")
             torch.save(gt,gt_cache_file)
-            # cached_dataset["gt_path"][i] = gt_cache_file
-            cached_dataset["gt_path"].append(gt_cache_file)
+            # when using your-dataset, bottom code is used.(without gt)
+            try:
+                cached_dataset["gt_path"][i] = gt_cache_file
+            except:
+                cached_dataset["gt_path"].append(gt_cache_file)
             if(self.cache_boost):
                 gts_pt_list.append(torch.unsqueeze(gt,0))
             # gts_list.append(gt.cpu().data.numpy().astype(np.uint8))
@@ -357,7 +360,8 @@ class GOSDatasetCache(Dataset):
             im_pt_path = os.path.join(self.cache_path,os.sep.join(self.dataset["im_path"][idx].split(os.sep)[-2:]))
             im = torch.load(im_pt_path)#(self.dataset["im_path"][idx])
             gt_pt_path = os.path.join(self.cache_path,os.sep.join(self.dataset["gt_path"][idx].split(os.sep)[-2:]))
-            gt = torch.load(gt_pt_path)#(self.dataset["gt_path"][idx])
+            gt = torch.load(self.dataset["gt_path"][idx])#(gt_pt_path)
+
             # print(idx,'time for tensor loading: ', time.time()-start)
 
 

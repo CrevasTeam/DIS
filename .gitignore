@@ -1,0 +1,8 @@
+DIS5K
+DIS5K-Cache
+saved_models/*
+__pycache__
+your-results
+your-dataset
+ANIMAL-DATASET
+ANIMAL-Cache
