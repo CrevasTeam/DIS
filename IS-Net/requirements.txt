@@ -1,6 +1,10 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: linux-64
+###
+# in docker
+# conda install blas brotli bzip2 ffmpeg cloudpickle colorama cycler cytoolz fonttools freetype fsspec gmp gnutls imageio intel-openmp jpeg kiwisolver lame lcms2 ld_impl_linux-64 libffi libgcc-ng libgfortran-ng libgfortran4 libgomp libiconv libidn2 libpng libstdcxx-ng libtasn1 libtiff libunistring libuv libwebp-base locket lz4-c matplotlib-base mkl mkl-service mkl_fft mkl_random munkres ncurses nettle networkx ninja  olefile openh264 openssl packaging partd pillow pyparsing python-dateutil pywavelets pyyaml readline scikit-image scipy sqlite tk toolz tqdm typing_extensions xz yaml zlib zstd
+###
 _libgcc_mutex=0.1=main
 _openmp_mutex=4.5=1_gnu
 blas=1.0=mkl
